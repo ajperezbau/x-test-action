@@ -2,10 +2,11 @@ import { Facet, Filter, isFacetFilter } from '@empathyco/x-types';
 import { Store } from 'vuex';
 import { XPlugin } from '../../../plugins/index';
 import { RootXStoreState } from '../../../store/index';
-import { arrayToObject, groupItemsBy, isArrayEmpty } from '../../../utils/index';
+import { arrayToObject, createRawFilters, groupItemsBy, isArrayEmpty } from '../../../utils/index';
 import { FilterEntityFactory } from '../entities/filter-entity.factory';
 import { FilterEntity } from '../entities/types';
 import { FacetGroupEntry, FacetsGetters } from '../store/types';
+import { UrlParams } from '../../../types/index';
 import { FacetsGroup, FacetsService } from './types';
 
 /**
@@ -66,6 +67,13 @@ export class DefaultFacetsService implements FacetsService {
       this.deselect(filter);
     } else {
       this.select(filter);
+    }
+  }
+
+  loadUrlFilters({ query, filter }: UrlParams): void {
+    if (query) {
+      this.clearFilters();
+      this.select(createRawFilters(filter));
     }
   }
 
@@ -180,6 +188,7 @@ export class DefaultFacetsService implements FacetsService {
    *
    * @param facet - The facet to store.
    *
+   * @param facet.filters
    * @internal
    */
   protected setFacet({ filters, ...restFacet }: Facet): void {

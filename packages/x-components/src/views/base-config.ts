@@ -6,7 +6,8 @@ import { realAdapter } from '../adapter/real-adapter';
 export const baseSnippetConfig: SnippetConfig = {
   instance: 'toysrus',
   lang: 'es',
-  scope: 'x-components-development'
+  scope: 'x-components-development',
+  filters: ['{!tag=brand_facet}brand_facet:"Lego"', '{!tag=age_facet}age_facet:"toddler"']
 };
 
 const adapter = 'Cypress' in window ? mockedAdapter : realAdapter;

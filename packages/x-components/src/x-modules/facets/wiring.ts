@@ -1,6 +1,4 @@
 import { Facet } from '@empathyco/x-types';
-import { UrlParams } from '../../types/url-params';
-import { createRawFilters } from '../../utils/filters';
 import { wireService, wireServiceWithoutPayload } from '../../wiring/wires.factory';
 import { mapWire } from '../../wiring/wires.operators';
 import { createWiring } from '../../wiring/wiring.utils';
@@ -72,9 +70,7 @@ const selectFilterWire = wireFacetsService('select');
  *
  * @public
  */
-const setFiltersFromUrl = mapWire(wireFacetsService('select'), ({ filter }: UrlParams) =>
-  createRawFilters(filter)
-);
+const loadUrlFiltersWire = wireFacetsService('loadUrlFilters');
 
 /**
  * Wiring configuration for the {@link FacetsXModule | facets module}.
@@ -83,9 +79,7 @@ const setFiltersFromUrl = mapWire(wireFacetsService('select'), ({ filter }: UrlP
  */
 export const facetsWiring = createWiring({
   ParamsLoadedFromUrl: {
-    // TODO: move this logic to Facets Service
-    clearAllFiltersWire,
-    setFiltersFromUrl
+    loadUrlFiltersWire
   },
   PreselectedFiltersProvided: {
     selectFilterWire

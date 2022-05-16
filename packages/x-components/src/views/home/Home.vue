@@ -2,6 +2,7 @@
   <div class="x">
     <Tagging :consent="false" />
     <SnippetConfigExtraParams :values="initialExtraParams" />
+    <PreselectedFilters />
     <UrlHandler query="q" store="store" />
     <SnippetCallbacks />
     <BaseEventsModalOpen>Start</BaseEventsModalOpen>
@@ -125,7 +126,7 @@
           >
             <span>{{ $x.totalResults }} Results</span>
             <BaseColumnPickerList
-              #default="{ column }"
+              v-slot="{ column }"
               v-model="selectedColumns"
               :columns="columnPickerValues"
             >
@@ -153,7 +154,7 @@
               </template>
             </SortDropdown>
 
-            <RenderlessExtraParams #default="{ value, updateValue }" name="store">
+            <RenderlessExtraParams v-slot="{ value, updateValue }" name="store">
               <BaseDropdown
                 @change="updateValue"
                 class="x-dropdown x-dropdown--round x-dropdown--right x-dropdown--l"
@@ -259,7 +260,7 @@
                         :max="controls.slicedFilters.max"
                         :data-test="`${facet.label}-sliced-filters`"
                       >
-                        <SelectedFilters #default="{ selectedFilters }" :facetsIds="[facet.id]">
+                        <SelectedFilters v-slot="{ selectedFilters }" :facetsIds="[facet.id]">
                           <span :data-test="`${facet.label}-selected-filters`">
                             {{ selectedFilters.length }}
                           </span>
@@ -293,7 +294,7 @@
         <template #main-body>
           <!--  Redirection  -->
           <Redirection
-            #default="{ redirection, redirect, abortRedirect, isRedirecting, delayInSeconds }"
+            v-slot="{ redirection, redirect, abortRedirect, isRedirecting, delayInSeconds }"
             class="x-margin--top-03 x-margin--bottom-03"
             :delayInSeconds="5"
           >
@@ -362,7 +363,7 @@
                               :max-items-to-render="3"
                             >
                               <NextQuery
-                                #default="{ suggestion: nextQuery }"
+                                v-slot="{ suggestion: nextQuery }"
                                 :suggestion="suggestion"
                                 class="x-tag x-tag--card"
                               >
@@ -401,7 +402,7 @@
             <!-- Recommendations -->
             <Recommendations v-if="!$x.query.search || $x.noResults" #layout="{ recommendations }">
               <BaseVariableColumnGrid
-                #default="{ item: result }"
+                v-slot="{ item: result }"
                 :animation="resultsAnimation"
                 :items="recommendations"
               >
@@ -509,6 +510,7 @@
   import Spellcheck from '../../x-modules/search/components/spellcheck.vue';
   import Tagging from '../../x-modules/tagging/components/tagging.vue';
   import UrlHandler from '../../x-modules/url/components/url-handler.vue';
+  import PreselectedFilters from '../../components/preselected-filters.vue';
   import PredictiveLayer from './predictive-layer.vue';
   import Result from './result.vue';
 
@@ -517,6 +519,7 @@
       infiniteScroll
     },
     components: {
+      PreselectedFilters,
       ArrowRight,
       AutoProgressBar,
       Banner,

@@ -25,13 +25,19 @@ function createRelatedTags(tags: string[], query: string): RelatedTag[] {
  * provided by Vuex.
  * @param urlParams - The url params from the url.
  *
+ * @param context.commit
+ * @param context.state
+ * @param urlParams.query
+ * @param urlParams.tag
  * @public
  */
 export const setUrlParams: RelatedTagsXStoreModule['actions']['setUrlParams'] = (
-  { commit },
+  { commit, state },
   { query, tag }: UrlParams
 ) => {
   commit('setSelectedRelatedTags', createRelatedTags(tag, query));
-  commit('setRelatedTags', []);
-  commit('setQuery', query);
+  if (query !== state.query) {
+    commit('setRelatedTags', []);
+    commit('setQuery', query);
+  }
 };

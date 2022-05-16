@@ -1,4 +1,5 @@
 import { Facet, Filter } from '@empathyco/x-types';
+import { UrlParams } from '../../../types/index';
 
 /**
  * An object containing a list of facets, and the group they belong to.
@@ -66,4 +67,5 @@ export interface FacetsService {
    * @param filter - The filter to toggle.
    */
   toggle(filter: Filter): void;
+  loadUrlFilters(filter: UrlParams): void;
 }
