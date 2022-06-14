@@ -34,6 +34,7 @@
   import { Component, Prop } from 'vue-property-decorator';
   import { toKebabCase } from '../utils/string';
   import { ListItem, VueCSSClasses } from '../utils/types';
+  import { Debounce } from './decorators/debounce.decorators';
   import { XInject } from './decorators/injection.decorators';
   import { LIST_ITEMS_KEY } from './decorators/injection.consts';
 
@@ -157,6 +158,25 @@
           cssClass: `x-base-grid__${slotName}`
         };
       });
+    }
+
+    mounted(): void {
+      const resizeObserver = new ResizeObserver(this.debouncedUpdateColumnsNumber.bind(this));
+      resizeObserver.observe(this.$el);
+    }
+
+    /**
+     * Debounced version of the {@link SlidingPanel.updateScrollPosition | updateScrollPosition}
+     * method.
+     *
+     * @internal
+     */
+    @Debounce(200)
+    debouncedUpdateColumnsNumber(): void {
+      this.$x.emit(
+        'ColumnsNumberChanged',
+        window.getComputedStyle(this.$el).gridTemplateColumns.split(' ').length
+      );
     }
   }
 </script>

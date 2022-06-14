@@ -73,6 +73,11 @@ export interface XEventsTypes
    */
   ColumnsNumberProvided: number;
   /**
+   * The number of columns of a grid has changed.
+   * Payload: the columns number.
+   */
+  ColumnsNumberChanged: number;
+  /**
    * Any kind of suggestions have been displayed (query-suggestions, popular searches...)
    * Payload: The displayed {@link @empathyco/x-types#Suggestion | suggestions}.
    */

@@ -20,6 +20,7 @@
   import Vue from 'vue';
   import { Component, Prop } from 'vue-property-decorator';
   import { State } from '../../../components/decorators/store.decorators';
+  import { XOn } from '../../../components/index';
   import { NoElement } from '../../../components/no-element';
   import { ItemsListInjectionMixin } from '../../../components/items-list-injection.mixin';
   import ItemsList from '../../../components/items-list.vue';
@@ -63,6 +64,13 @@
     @Prop({ default: 'ul' })
     protected animation!: Vue | string;
 
+    @XOn('ColumnsNumberChanged')
+    public updateColumnsNumber(columns: number): void {
+      this.columnsNumber = columns;
+    }
+
+    public columnsNumber = 0;
+
     /**
      * The `stateItems` concatenated with the `injectedListItems` if there are.
      *
@@ -74,9 +82,25 @@
      * @internal
      */
     public override get items(): ListItem[] {
-      return this.injectedListItems
-        ? [...this.stateItems, ...this.injectedListItems]
-        : this.stateItems;
+      if (!this.injectedListItems) {
+        return this.stateItems;
+      }
+      if (!this.columnsNumber) {
+        return [...this.stateItems, ...this.injectedListItems];
+      }
+
+      const items = [...this.injectedListItems];
+
+      this.stateItems.forEach((banner, index) => {
+        const bannerPosition =
+          this.columnsNumber * ((banner.position ?? 0) - 1) -
+            index * (this.columnsNumber - 1);
+
+        items.splice(bannerPosition, 0, banner);
+        console.log({ id: banner.id, bannerPosition, index, columnsNumber: this.columnsNumber });
+      });
+
+      return items;
     }
   }
 </script>
