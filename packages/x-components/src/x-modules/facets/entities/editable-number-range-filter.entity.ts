@@ -52,10 +52,9 @@ export class EditableNumberRangeFilterEntity implements FilterEntity {
   select(filter: EditableNumberRangeFilter): void {
     const newFilterId = this.getNewFilterId(filter);
     this.removePreviousFilter(filter.facetId);
-    this.store.commit('x/facets/setFilter', {
-      ...filter,
-      id: newFilterId,
-      selected: this.isSelected(filter)
+    this.store.commit('x/facets/mutateFilter', {
+      filter,
+      newFilterState: { id: newFilterId, selected: this.isSelected(filter) }
     });
     addFacetIfNotPresent(this.store, filter.facetId, 'EditableNumberRangeFacet');
   }
