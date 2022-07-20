@@ -85,7 +85,7 @@ export class HierarchicalFilterEntity implements FilterEntity {
    * Saves the given filter to the store.
    *
    * @param filter - The filter to save to the store.
-   * @param newFilterState
+   * @param newFilterState - The new partial state of the filter.
    * @internal
    */
   protected saveFilter(
