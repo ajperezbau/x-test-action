@@ -237,11 +237,35 @@ export function getSimpleFacetStub(): SimpleFacet {
  * @internal
  */
 export function getHierarchicalFacetStub(): HierarchicalFacet {
+  const childrenFilters: HierarchicalFilter[] = [
+    {
+      facetId: 'hierarchical_category',
+      parentId: 'hierarchical_category:"rompecabezas"',
+      id: 'hierarchical_category:"rompecabezas-faciles"',
+      label: 'Rompecabezas difíciles',
+      selected: false,
+      totalResults: 1,
+      modelName: 'HierarchicalFilter',
+      children: []
+    },
+    {
+      facetId: 'hierarchical_category',
+      parentId: 'hierarchical_category:"rompecabezas"',
+      id: 'hierarchical_category:"rompecabezas-dificiles"',
+      label: 'Rompecabezas fáciles',
+      selected: false,
+      totalResults: 1,
+      modelName: 'HierarchicalFilter',
+      children: []
+    }
+  ];
+
   return {
     id: 'hierarchical_category',
     modelName: 'HierarchicalFacet',
     label: 'hierarchical_category',
     filters: [
+      ...childrenFilters,
       {
         facetId: 'hierarchical_category',
         parentId: null,
@@ -250,48 +274,7 @@ export function getHierarchicalFacetStub(): HierarchicalFacet {
         selected: false,
         totalResults: 1,
         modelName: 'HierarchicalFilter',
-        children: [
-          {
-            facetId: 'hierarchical_category',
-            parentId: 'hierarchical_category:"rompecabezas"',
-            id: 'hierarchical_category:"rompecabezas-faciles"',
-            label: 'Rompecabezas difíciles',
-            selected: false,
-            totalResults: 1,
-            modelName: 'HierarchicalFilter',
-            children: []
-          },
-          {
-            facetId: 'hierarchical_category',
-            parentId: 'hierarchical_category:"rompecabezas"',
-            id: 'hierarchical_category:"rompecabezas-dificiles"',
-            label: 'Rompecabezas fáciles',
-            selected: false,
-            totalResults: 1,
-            modelName: 'HierarchicalFilter',
-            children: []
-          }
-        ]
-      },
-      {
-        facetId: 'hierarchical_category',
-        parentId: 'hierarchical_category:"rompecabezas"',
-        id: 'hierarchical_category:"rompecabezas-faciles"',
-        label: 'Rompecabezas difíciles',
-        selected: false,
-        totalResults: 1,
-        modelName: 'HierarchicalFilter',
-        children: []
-      },
-      {
-        facetId: 'hierarchical_category',
-        parentId: 'hierarchical_category:"rompecabezas"',
-        id: 'hierarchical_category:"rompecabezas-dificiles"',
-        label: 'Rompecabezas fáciles',
-        selected: false,
-        totalResults: 1,
-        modelName: 'HierarchicalFilter',
-        children: []
+        children: childrenFilters
       },
       {
         facetId: 'hierarchical_category',
