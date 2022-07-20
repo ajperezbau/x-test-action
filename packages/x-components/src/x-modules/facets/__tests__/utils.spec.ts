@@ -1,4 +1,5 @@
-import { isNewQuery } from '../utils';
+import { getHierarchicalFacetStub } from '../../../__stubs__';
+import { flatHierarchicalFilters, isNewQuery } from '../utils';
 
 describe('testing hasQueryChanged util', () => {
   it('returns true when the new query changes by one word', () => {
@@ -40,5 +41,21 @@ describe('testing hasQueryChanged util', () => {
     const newQuery = 'pantalon corto';
     const previousQuery = 'pantalones cortos';
     expect(isNewQuery(newQuery, previousQuery)).toBe(false);
+  });
+});
+
+describe('testing flatHierarchicalFilters util', () => {
+  const hierarchicalFilters = getHierarchicalFacetStub().filters;
+  const flattenedHierarchicalFilters = flatHierarchicalFilters(hierarchicalFilters);
+
+  it('returns an array with all parent filters', () => {
+    expect(flattenedHierarchicalFilters.length).toBeGreaterThan(hierarchicalFilters.length);
+  });
+
+  it('returns an array with the children filters', () => {
+    hierarchicalFilters.forEach(filter => {
+      filter.children?.forEach(child => expect(flattenedHierarchicalFilters).toContain(child));
+    });
+    expect.hasAssertions();
   });
 });

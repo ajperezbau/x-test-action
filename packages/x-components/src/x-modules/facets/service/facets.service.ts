@@ -1,10 +1,4 @@
-import {
-  Facet,
-  Filter,
-  isFacetFilter,
-  HierarchicalFilter,
-  isHierarchicalFacet
-} from '@empathyco/x-types';
+import { Facet, Filter, isFacetFilter, isHierarchicalFacet } from '@empathyco/x-types';
 import { Store } from 'vuex';
 import { XPlugin } from '../../../plugins/index';
 import { RootXStoreState } from '../../../store/index';
@@ -12,6 +6,7 @@ import { arrayToObject, groupItemsBy, isArrayEmpty } from '../../../utils/index'
 import { FilterEntityFactory } from '../entities/filter-entity.factory';
 import { FilterEntity } from '../entities/types';
 import { FacetGroupEntry, FacetsGetters } from '../store/types';
+import { flatHierarchicalFilters } from '../utils';
 import { FacetsGroup, FacetsService } from './types';
 
 /**
@@ -116,22 +111,8 @@ export class DefaultFacetsService implements FacetsService {
 
   protected flatFilters(facetsGroup: FacetsGroup): Filter[] {
     return facetsGroup.facets.flatMap(facet =>
-      isHierarchicalFacet(facet) ? this.flatHierarchicalFilters(facet.filters) : facet.filters
+      isHierarchicalFacet(facet) ? flatHierarchicalFilters(facet.filters) : facet.filters
     );
-  }
-
-  protected flatHierarchicalFilters(
-    hierarchicalFilters: HierarchicalFilter[]
-  ): HierarchicalFilter[] {
-    return [
-      ...hierarchicalFilters,
-      ...hierarchicalFilters.reduce((accumulator, value) => {
-        if (value.children != null) {
-          accumulator.push(...this.flatHierarchicalFilters(value.children));
-        }
-        return accumulator;
-      }, [] as HierarchicalFilter[])
-    ];
   }
 
   /**
