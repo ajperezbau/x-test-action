@@ -282,7 +282,7 @@ describe('testing facets service', () => {
       const priceFacet = createEditableNumberRangeFacetStub('price', createFilter =>
         createFilter({ min: null, max: 10 }, true)
       );
-      const priceUpTo10Filter = priceFacet.filters[0];
+      const priceUpTo10Filter = JSON.parse(JSON.stringify(priceFacet.filters[0]));
 
       // Save a fresh new facets group. Because there
       // are no previous filters, all filters should be deselected.
