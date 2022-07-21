@@ -111,7 +111,7 @@ export class DefaultFacetsService implements FacetsService {
 
   /**
    * This function returns the filters of the facets group flattened in an array. It keeps the
-   * relations between the filters (parent -> children).
+   * relations between the filters (parent--children).
    *
    * @remarks If it is necessary to deal with more cases than the hierarchical, we need to refactor
    * this logic and maybe move it to the entities, to not make this service dependant of the facet
