@@ -24,16 +24,12 @@ export const facetsXStoreModule: FacetsXStoreModule = {
   },
   mutations: {
     mutateFilter(state, { filter, newFilterState }) {
-      // Keep creating a copy to avoid side effects mutating filters in the FacetsProvider component
-      const newFilter = { ...filter, ...newFilterState };
+      const newFilter = Object.assign(filter, newFilterState);
       if (!state.filters[newFilter.id]) {
         Vue.set(state.filters, newFilter.id, newFilter);
       } else {
         state.filters[newFilter.id] = newFilter;
       }
-    },
-    setFilter(state, filter) {
-      Vue.set(state.filters, filter.id, filter);
     },
     setFilters(state, filters) {
       filters.forEach(filter => Vue.set(state.filters, filter.id, filter));

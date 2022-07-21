@@ -70,12 +70,6 @@ export interface FacetsMutations {
    */
   setFilters(filters: Filter[]): void;
   /**
-   * Adds the filter to the {@link FacetsState.filters | filters} record.
-   *
-   * @param filter - The filter to add.
-   */
-  setFilter(filter: Filter): void;
-  /**
    * Adds a list of filters to the {@link FacetsState.preselectedFilters | preselectedFilters}
    * record.
    *
