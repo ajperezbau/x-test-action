@@ -3,10 +3,5 @@
   "extends": ["config:base", "group:allNonMajor"],
   "timezone": "Europe/Madrid",
   "dependencyDashboard": true,
-  "rebaseWhen": "behind-base-branch",
-  "packageRules": [
-    {
-      "matchManagers": ["pnpm"]
-    }
-  ]
+  "rebaseWhen": "behind-base-branch"
 }
