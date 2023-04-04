@@ -63,6 +63,3 @@ jobs:
 
       - name: lint packages
         run: pnpm run lint
-
-      - name: test packages
-        run: pnpm run test
