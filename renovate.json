@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "group:allNonMajor"],
+  "extends": ["config:base", "group:allNonMajor", "group:definitelyTyped"],
   "timezone": "Europe/Madrid",
   "dependencyDashboard": true,
   "rebaseWhen": "behind-base-branch"
