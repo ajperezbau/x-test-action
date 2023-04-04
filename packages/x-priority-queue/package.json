@@ -39,7 +39,7 @@
     "tslib": "~2.4.1"
   },
   "devDependencies": {
-    "@types/jest": "~27.0.3",
+    "@types/jest": "~29.5.0",
     "concurrently": "~7.6.0",
     "jest": "~27.3.1",
     "rimraf": "~3.0.2",
