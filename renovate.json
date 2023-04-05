@@ -7,7 +7,7 @@
   "packageRules": [
     {
       "matchPackageNames": ["@vue/test-utils"],
-      "versioning": "regex:^(d+)(\\.(?<major>\\d+))?(\\.(?<minor>\\d+))?(-(?<compatibility>.*))?$"
+      "separateMinorPatch": true
     }
   ]
 }
