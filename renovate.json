@@ -3,5 +3,11 @@
   "extends": ["config:base", "group:allNonMajor"],
   "timezone": "Europe/Madrid",
   "rebaseWhen": "behind-base-branch",
-  "dependencyDashboard": true
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchPackageNames": ["@vue/test-utils"],
+      "versioning": "regex:^(?<major>\\d+)(\\.(?<minor>\\d+))?(\\.(?<patch>\\d+))?(-(?<compatibility>.*))?$"
+    }
+  ]
 }
