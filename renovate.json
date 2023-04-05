@@ -3,6 +3,7 @@
   "extends": ["config:base", "group:allNonMajor"],
   "timezone": "Europe/Madrid",
   "rebaseWhen": "behind-base-branch",
+  "dependencyDashboard": true,
   "packageRules": [
     {
       "matchPackageNames": ["@vue/test-utils"],
