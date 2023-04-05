@@ -43,7 +43,7 @@
     "@empathyco/x-utils": "^1.0.0-alpha.18",
     "@types/jest": "~27.0.3",
     "@types/node": "~16.4.12",
-    "@vue/test-utils": "~1.0.3",
+    "@vue/test-utils": "~2.3.0",
     "jest": "~27.3.1",
     "rimraf": "~3.0.2",
     "rollup": "~2.79.1",
