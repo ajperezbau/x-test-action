@@ -1,5 +1,5 @@
 {
-  "name": "@ajperezbau/x-bus",
+  "name": "@empathyco/x-bus",
   "version": "0.1.0-alpha.12",
   "description": "Event bus to help with events orchestration",
   "author": "Empathy Systems Corporation S.L.",

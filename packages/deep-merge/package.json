@@ -1,5 +1,5 @@
 {
-  "name": "@ajperezbau/x-deep-merge",
+  "name": "@empathyco/x-deep-merge",
   "version": "1.3.0-alpha.34",
   "description": "Utility for deep cloning objects.",
   "author": "Empathy Systems Corporation S.L.",

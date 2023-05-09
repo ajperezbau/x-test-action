@@ -1,5 +1,5 @@
 {
-  "name": "@ajperezbau/x-priority-queue",
+  "name": "@empathyco/x-priority-queue",
   "version": "0.1.0-alpha.15",
   "description": "A priority queue implementation in typescript allowing cancellable elements",
   "author": "Empathy Systems Corporation S.L.",

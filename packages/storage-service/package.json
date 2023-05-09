@@ -1,5 +1,5 @@
 {
-  "name": "@ajperezbau/x-storage-service",
+  "name": "@empathyco/x-storage-service",
   "version": "2.0.0-alpha.11",
   "description": "Storage service with TTL",
   "author": "Empathy Systems Corporation S.L.",
