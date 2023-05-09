@@ -1,5 +1,5 @@
 {
-  "name": "@empathyco/x-react-wrapper",
+  "name": "@ajperezbau/x-react-wrapper",
   "version": "4.0.0-alpha.24",
   "description": "A proxy that transforms Vue components into React ones",
   "author": "Empathy Systems Corporation S.L.",
