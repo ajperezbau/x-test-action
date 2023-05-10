@@ -1,5 +1,5 @@
 {
-  "name": "@empathyco/x-tailwindcss",
+  "name": "@ajperezbau/x-tailwindcss",
   "version": "1.0.0-alpha.29",
   "description": "Empathy X Tailwind plugin",
   "author": "Empathy Systems Corporation S.L.",
@@ -35,9 +35,15 @@
     "lint": "eslint . --ext .ts,.vue",
     "prepublishOnly": "pnpm run build"
   },
+  "nx": {
+    "implicitDependencies": [
+      "@ajperezbau/x-deep-merge",
+      "@ajperezbau/x-utils"
+    ]
+  },
   "dependencies": {
-    "@empathyco/x-deep-merge": "^1.3.0-alpha.34",
-    "@empathyco/x-utils": "^1.0.0-alpha.19",
+    "@empathyco/x-deep-merge": "workspace:@ajperezbau/x-deep-merge@*",
+    "@empathyco/x-utils": "workspace:@ajperezbau/x-utils@*",
     "tslib": "~2.5.0"
   },
   "peerDependencies": {

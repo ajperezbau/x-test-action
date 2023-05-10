@@ -1,5 +1,5 @@
 {
-  "name": "@empathyco/x-components",
+  "name": "@ajperezbau/x-components",
   "version": "3.0.0-alpha.366",
   "description": "Empathy X Components",
   "author": "Empathy Systems Corporation S.L.",
@@ -66,15 +66,28 @@
     "cypress:open:component:firefox": "cypress open --component --browser firefox",
     "prepublishOnly": "pnpm run build"
   },
+  "nx": {
+    "implicitDependencies": [
+      "@ajperezbau/x-adapter",
+      "@ajperezbau/x-adapter-platform",
+      "@ajperezbau/x-bus",
+      "@ajperezbau/x-deep-merge",
+      "@ajperezbau/x-logger",
+      "@ajperezbau/x-storage-service",
+      "@ajperezbau/x-types",
+      "@ajperezbau/x-utils",
+      "@ajperezbau/x-tailwindcss"
+    ]
+  },
   "dependencies": {
-    "@empathyco/x-adapter": "^8.0.0-alpha.28",
-    "@empathyco/x-adapter-platform": "^1.0.0-alpha.71",
-    "@empathyco/x-bus": "^0.1.0-alpha.12",
-    "@empathyco/x-deep-merge": "^1.3.0-alpha.34",
-    "@empathyco/x-logger": "^1.2.0-alpha.11",
-    "@empathyco/x-storage-service": "^2.0.0-alpha.11",
-    "@empathyco/x-types": "^10.0.0-alpha.66",
-    "@empathyco/x-utils": "^1.0.0-alpha.19",
+    "@empathyco/x-adapter": "workspace:@ajperezbau/x-adapter@*",
+    "@empathyco/x-adapter-platform": "workspace:@ajperezbau/x-adapter-platform@*",
+    "@empathyco/x-bus": "workspace:@ajperezbau/x-bus@*",
+    "@empathyco/x-deep-merge": "workspace:@ajperezbau/x-deep-merge@*",
+    "@empathyco/x-logger": "workspace:@ajperezbau/x-logger@*",
+    "@empathyco/x-storage-service": "workspace:@ajperezbau/x-storage-service@*",
+    "@empathyco/x-types": "workspace:@ajperezbau/x-types@*",
+    "@empathyco/x-utils": "workspace:@ajperezbau/x-utils@*",
     "@vue/devtools-api": "~6.5.0",
     "@vueuse/core": "~9.13.0",
     "rxjs": "~7.8.0",
@@ -92,7 +105,7 @@
     "@badeball/cypress-cucumber-preprocessor": "~16.0.0",
     "@bahmutov/cypress-esbuild-preprocessor": "~2.2.0",
     "@cypress/vue2": "~2.0.1",
-    "@empathyco/x-tailwindcss": "^1.0.0-alpha.29",
+    "@empathyco/x-tailwindcss": "workspace:@ajperezbau/x-tailwindcss@*",
     "@microsoft/api-documenter": "~7.22.0",
     "@microsoft/api-extractor": "~7.34.0",
     "@rollup/plugin-commonjs": "~24.1.0",

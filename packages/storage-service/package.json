@@ -1,5 +1,5 @@
 {
-  "name": "@empathyco/x-storage-service",
+  "name": "@ajperezbau/x-storage-service",
   "version": "2.0.0-alpha.11",
   "description": "Storage service with TTL",
   "author": "Empathy Systems Corporation S.L.",
@@ -38,8 +38,13 @@
     "test:coverage": "jest --coverage",
     "prepublishOnly": "pnpm run build"
   },
+  "nx": {
+    "implicitDependencies": [
+      "@ajperezbau/x-logger"
+    ]
+  },
   "dependencies": {
-    "@empathyco/x-logger": "^1.2.0-alpha.11",
+    "@empathyco/x-logger": "workspace:@ajperezbau/x-logger@*",
     "tslib": "~2.5.0"
   },
   "devDependencies": {

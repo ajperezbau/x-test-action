@@ -1,5 +1,5 @@
 {
-  "name": "@empathyco/x-types",
+  "name": "@ajperezbau/x-types",
   "version": "10.0.0-alpha.66",
   "description": "Empathy search types",
   "author": "Empathy Systems Corporation S.L.",
@@ -37,11 +37,11 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@empathyco/x-adapter": "^8.0.0-alpha.28",
+    "@empathyco/x-adapter": "workspace:@ajperezbau/x-adapter@*",
     "tslib": "~2.5.0"
   },
   "devDependencies": {
-    "@empathyco/x-jest-utils": "^1.4.0-alpha.11",
+    "@empathyco/x-jest-utils": "workspace:@ajperezbau/x-jest-utils@*",
     "@microsoft/api-documenter": "~7.22.0",
     "@microsoft/api-extractor": "~7.34.0",
     "@types/jest": "~27.5.0",
@@ -50,6 +50,12 @@
     "rollup-plugin-delete": "~2.0.0",
     "rollup-plugin-typescript2": "~0.34.1",
     "typescript": "~4.9.4"
+  },
+  "nx": {
+    "implicitDependencies": [
+      "@ajperezbau/x-adapter",
+      "@ajperezbau/x-jest-utils"
+    ]
   },
   "publishConfig": {
     "access": "public"
