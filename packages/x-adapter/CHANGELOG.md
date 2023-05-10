@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 8.0.0-alpha.30 (2023-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** minimum version required is node v18
+
+EMP-274
+* MutableSchema now receives a Source and a Target object instead of a Schema
+* $replace, $extends and $override function types now reflect the allowed operations more correctly.
+* `getSafePropertyChain` moved to `@empathyco/x-utils` package.
+
+### Features
+
+* **adapter:** disable cancel http client (#658) ([3b5b86d](https://github.com/empathyco/x/commit/3b5b86d4725edefa084181a704df716a389eecbc)), closes [EX-6875](https://searchbroker.atlassian.net/browse/EX-6875)
+* add `endpointAdapterFactory` (#378) ([25221ab](https://github.com/empathyco/x/commit/25221ab2ed407f7a7f86054da3a09d64b79d891b)), closes [EX-5388](https://searchbroker.atlassian.net/browse/EX-5388)
+* add basic types ([b1217e2](https://github.com/empathyco/x/commit/b1217e2a6f9fa6307a477e44ee8a96d5f8897ea3)), closes [EX-5387](https://searchbroker.atlassian.net/browse/EX-5387)
+* add support for `object` params in `httpClients` ([c51760b](https://github.com/empathyco/x/commit/c51760b07b2dac2e83f13964aac614d8fe6e8e8b)), closes [EX-6293](https://searchbroker.atlassian.net/browse/EX-6293)
+* Add suppport to interpolate deep paramteres in the endpoint. (#523) ([b01f9e9](https://github.com/empathyco/x/commit/b01f9e94fdbe1cd2b001d77469afc8dd102eb796)), closes [EX-6295](https://searchbroker.atlassian.net/browse/EX-6295)
+* default implementation ([3df8522](https://github.com/empathyco/x/commit/3df85225375f20c9c2808bdd4d885b3c7a62db6a)), closes [EX-5983](https://searchbroker.atlassian.net/browse/EX-5983)
+* disable `@typescript-eslint/no-extra-parens` rule (#715) ([3718017](https://github.com/empathyco/x/commit/3718017c5528156f931bc8b1f2d208cdb50781ed)), closes [EX-6996](https://searchbroker.atlassian.net/browse/EX-6996)
+* Do not flatten body params in fetch http client. (#624) ([375c37f](https://github.com/empathyco/x/commit/375c37f6263cbbb1e88c71d8d6e29e01080c4079))
+* **http-clients:** Add `beaconHttpClient` (#420) ([667958f](https://github.com/empathyco/x/commit/667958f667bf0e4612604d98c5dcf3091b6edeeb)), closes [EX-5842](https://searchbroker.atlassian.net/browse/EX-5842)
+* **http-clients:** add `fetchHttpClient`  ([8040281](https://github.com/empathyco/x/commit/8040281c827f5f631260715007eb26194d6b7f10)), closes [EX-5840](https://searchbroker.atlassian.net/browse/EX-5840)
+* **mappers:** add `combineMappers` util. ([ac41058](https://github.com/empathyco/x/commit/ac410581514bd6c2ae13150036fb0879a14512e1)), closes [EX-6294](https://searchbroker.atlassian.net/browse/EX-6294)
+* **mappers:** Add `schemaMapperFactory` (#411) ([075b718](https://github.com/empathyco/x/commit/075b718372bccb4088edb29989ac8015758959b1)), closes [EX-5419](https://searchbroker.atlassian.net/browse/EX-5419)
+* **mappers:** allow passing raw values to `subSchema.$context` using functions ([b79f84e](https://github.com/empathyco/x/commit/b79f84e5fdf66d4c84df97c1098206314cbf68ae)), closes [EX-6217](https://searchbroker.atlassian.net/browse/EX-6217)
+* remove old adapter package and use the new one (#568) ([1632a59](https://github.com/empathyco/x/commit/1632a594b6905e6403c82b2189300eefd45b3691)), closes [EX-6286](https://searchbroker.atlassian.net/browse/EX-6286)
+* **schemas:** add `createMutableSchema` utility ([6b505b9](https://github.com/empathyco/x/commit/6b505b9a92e2c9f56c9a2053ea8e1a4f03f9966e)), closes [EX-5435](https://searchbroker.atlassian.net/browse/EX-5435)
+* **schemas:** add Schema types (#388) ([a58e5c3](https://github.com/empathyco/x/commit/a58e5c31c75f78371029457c8c2af8b7e212a484)), closes [EX-5433](https://searchbroker.atlassian.net/browse/EX-5433)
+* split adapter interface into  `EndpointAdapter` and `ExtendableEndpointAdapter` ([2e8e287](https://github.com/empathyco/x/commit/2e8e287d00f3fe3c2ef6f02d4cc6a843d84d683b)), closes [EX-6121](https://searchbroker.atlassian.net/browse/EX-6121)
+* **utils:** add `interpolate` function ([90cad72](https://github.com/empathyco/x/commit/90cad720f6705ce9d2cf933f07a982c21fe80102)), closes [EX-5395](https://searchbroker.atlassian.net/browse/EX-5395)
+* **x-adapter:** Add `sendParamsInBody` option to `RequestOptions` (#577) ([9d04e6e](https://github.com/empathyco/x/commit/9d04e6eb7ceed81aeca4215db6e8302f0ab3705a)), closes [EX-6450](https://searchbroker.atlassian.net/browse/EX-6450)
+* **x-adapter:** clean empty params (#716) ([eeb4399](https://github.com/empathyco/x/commit/eeb4399c59b44691d31efbf49ad028dda1123229)), closes [EX-6959](https://searchbroker.atlassian.net/browse/EX-6959)
+
+
+### Bug Fixes
+
+* **deps:** remove  `only-allow` pnpm (#1097) ([b2a63d3](https://github.com/empathyco/x/commit/b2a63d308f20804d55a266189ab5d6242f88f6d8)), closes [EX-8082](https://searchbroker.atlassian.net/browse/EX-8082)
+* mutable schema types (#960) ([8015921](https://github.com/empathyco/x/commit/8015921daf2c9e5ee3a6fce2c1f57458aeb278dd)), closes [EX-7702](https://searchbroker.atlassian.net/browse/EX-7702)
+* Remove `@empathyco/x-platform-adapter` dependency from library code. (#575) ([104c7e1](https://github.com/empathyco/x/commit/104c7e10855a67b2adfa68d42d82431f9194ee15)), closes [EX-6437](https://searchbroker.atlassian.net/browse/EX-6437)
+
+
+### Code Refactoring
+
+* add types to `getSafePropertyChain` and move it to `@empatyco/x-utils` (#940) ([5118210](https://github.com/empathyco/x/commit/511821063b8b08751c15f00f233e7b611a74b2cc)), closes [EX-7647](https://searchbroker.atlassian.net/browse/EX-7647)
+* reestructure folders organisation ([ec25168](https://github.com/empathyco/x/commit/ec25168327e4a136fe25a226a24c1dd47f721d3a)), closes [EX-6298](https://searchbroker.atlassian.net/browse/EX-6298)
+* remove undefined from return type of mapper factory ([e088967](https://github.com/empathyco/x/commit/e0889672b850c481578c4ddd42b74474802088b0)), closes [EX-5926](https://searchbroker.atlassian.net/browse/EX-5926)
+
+
+### Documentation
+
+*  add `license` and improve `readme` (#968) ([d6513fb](https://github.com/empathyco/x/commit/d6513fb77d6467e7490f9951c2111870b4770058)), closes [EX-6046](https://searchbroker.atlassian.net/browse/EX-6046)
+* add mutable schemas examples (#967) ([e5e2bd9](https://github.com/empathyco/x/commit/e5e2bd92082de2256cd5a6e8b7cff029bdd65585)), closes [EX-6046](https://searchbroker.atlassian.net/browse/EX-6046)
+* create Readme for x-adapter (#921) ([55fc422](https://github.com/empathyco/x/commit/55fc4223ab41e407892e68bf3fe4af7fba5f527a))
+
+
+### Build System
+
+* change `config` ([37be26e](https://github.com/empathyco/x/commit/37be26e83dbf3a200fb3fe23f4fc7221a83ca7e8)), closes [EX-5874](https://searchbroker.atlassian.net/browse/EX-5874)
+* **dependencies:** update `typescript` to `4.9.4` and its dependencies to their latest version (#993) ([500ab57](https://github.com/empathyco/x/commit/500ab57e4729f5c4dcefaa31ed4a8497ddd349b9)), closes [EX-7288](https://searchbroker.atlassian.net/browse/EX-7288)
+* **deps:** update `vue` to version `2.7` (#971) ([09fb0fe](https://github.com/empathyco/x/commit/09fb0fe5dbef020565571a4fafc89d2aac544c8e)), closes [EX-7730](https://searchbroker.atlassian.net/browse/EX-7730)
+* **deps:** update dependencies ([491f9c5](https://github.com/empathyco/x/commit/491f9c5a27cf5eaa4dc3f31c97ea514bb8f3515b))
+* **deps:** update eslint-plugin dependencies (#447) ([51d60f0](https://github.com/empathyco/x/commit/51d60f0e11fa9667a784bbdb10ba1f39159b382f)), closes [EX-5383](https://searchbroker.atlassian.net/browse/EX-5383)
+
+
+### Others
+
+* **deps:** update node to v18 (#1175) ([14e64e1](https://github.com/empathyco/x/commit/14e64e11fdf7f3d27d59baf56b027857df9e61e7))
+
+
+### Continuous Integration
+
+* migrate from `npm` & `lerna bootstrap` to `pnpm` (#1047) ([aaaba4f](https://github.com/empathyco/x/commit/aaaba4f8a5498c16e17ea6daf9c18a1f49918f70)), closes [EX-7891](https://searchbroker.atlassian.net/browse/EX-7891)
+* parallelize steps (#1174) ([3013595](https://github.com/empathyco/x/commit/3013595857c8dac33f36b2c0d08e747b0735c6a0))
+* refactor `lint` command to benefit from `nx parallelisation` (#1051) ([1af1503](https://github.com/empathyco/x/commit/1af1503ff118d6232fdbb27e203037a89b1b52e0)), closes [EX-7926](https://searchbroker.atlassian.net/browse/EX-7926)
+* update `runners` version (#740) ([38f246c](https://github.com/empathyco/x/commit/38f246c306dac40c4afbcdea08336052981ca9b8))
+* use matrix steps and jest projects (#919) ([dec53f5](https://github.com/empathyco/x/commit/dec53f5da572a4a5f3c8519222c1ed94ed981967))
+
+
+
 ## 8.0.0-alpha.29 (2023-05-10)
 
 
