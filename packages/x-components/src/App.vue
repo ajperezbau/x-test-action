@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <span>test</span>
     <nav>
       <!-- Intentionally using an `a` element instead of `router-link` to perform a full refresh -->
       <a v-for="route in $router.options.routes" :key="route.name" class="link" :href="route.path">
