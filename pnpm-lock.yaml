@@ -16756,7 +16756,7 @@ packages:
     resolution: {directory: packages/eslint-plugin-x, type: directory}
     id: file:packages/eslint-plugin-x
     name: '@ajperezbau/eslint-plugin-x'
-    version: 2.0.0-alpha.34
+    version: 2.0.0-alpha.35
     engines: {node: '>=18'}
     peerDependencies:
       eslint: ~8.32.0
