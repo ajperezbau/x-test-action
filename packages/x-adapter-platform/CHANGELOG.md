@@ -1,5 +1,99 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.0.0-alpha.72 (2023-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** minimum version required is node v18
+
+EMP-274
+* MutableSchema now receives a Source and a Target object instead of a Schema
+* $replace, $extends and $override function types now reflect the allowed operations more correctly.
+* **facets:** Removed the `setFilter`mutation from `facets` X-Module. Use `mutateFilter` instead.
+* **facets:** Modified the `HierarchicalFilter.children` Model type. Now it is an `Array<HierarchicalFilter>` instead of an array of ids.
+* Request types moved to `x-types` package. Change the imports from `x-adapter` to `x-type`.
+* Removed `TaggingInfo` type. Use `TaggingRequest` from `@empathyco/x-types` instead.
+
+### Features
+
+* Adapt Result mapping according to new API standard (#1039) ([89186b6](https://github.com/empathyco/x/commit/89186b604d72f18bce257b88b536243c11c5ddf3))
+* **adapter:** disable cancel http client (#658) ([3b5b86d](https://github.com/empathyco/x/commit/3b5b86d4725edefa084181a704df716a389eecbc)), closes [EX-6875](https://searchbroker.atlassian.net/browse/EX-6875)
+* Add facets type field on Platform adapter (#784) ([96b97a8](https://github.com/empathyco/x/commit/96b97a88b98a785d5e491b75c85e90ac11261f29)), closes [EX-6373](https://searchbroker.atlassian.net/browse/EX-6373)
+* add position on Banner and Promoted models (#800) ([e7393fb](https://github.com/empathyco/x/commit/e7393fbce8d0767d3c762aa714fe94e162203a12)), closes [EX-7293](https://searchbroker.atlassian.net/browse/EX-7293)
+* add query suggestions (#528) ([bb9509f](https://github.com/empathyco/x/commit/bb9509f13f5ce6e37328d9c846fdad6278ddc861))
+* **banners:** add tagging info banners in platform adapter (#823) ([71bd570](https://github.com/empathyco/x/commit/71bd5702b963c41a2cd75e719aad9976ec2180b0))
+* change endpoint adapter ids in platform adapter (#616) ([ad630cf](https://github.com/empathyco/x/commit/ad630cfe29027972d9c0e3dc1f82889b4b01c700)), closes [EX-6662](https://searchbroker.atlassian.net/browse/EX-6662)
+* default implementation ([3df8522](https://github.com/empathyco/x/commit/3df85225375f20c9c2808bdd4d885b3c7a62db6a)), closes [EX-5983](https://searchbroker.atlassian.net/browse/EX-5983)
+* **endpoint-adapters:** add `internal` field to all `requests` but `tagging` (#1016) ([d718bc1](https://github.com/empathyco/x/commit/d718bc1a2b0449fc8d41f8d23cbb882adad3d8eb)), closes [EX-7780](https://searchbroker.atlassian.net/browse/EX-7780)
+* **facets:** Move filters flattening from `x-adapter-platform` to `x-components`. (#626) ([2bebaeb](https://github.com/empathyco/x/commit/2bebaeb2863fe794f1b3bea924904651b9302ef6)), closes [EX-6484](https://searchbroker.atlassian.net/browse/EX-6484)
+* move `Request` types to `x-types` package ([7cc85c1](https://github.com/empathyco/x/commit/7cc85c1d371b604b3188d8cc2076eab5fc9460e4)), closes [EX-6066](https://searchbroker.atlassian.net/browse/EX-6066)
+* remove old adapter package and use the new one (#568) ([1632a59](https://github.com/empathyco/x/commit/1632a594b6905e6403c82b2189300eefd45b3691)), closes [EX-6286](https://searchbroker.atlassian.net/browse/EX-6286)
+* **search:** add partial results support (#580) ([68922b8](https://github.com/empathyco/x/commit/68922b8e46495438131ce26b506670f7e7993ea0)), closes [EX-6465](https://searchbroker.atlassian.net/browse/EX-6465)
+* **x-adapter:** Add `sendParamsInBody` option to `RequestOptions` (#577) ([9d04e6e](https://github.com/empathyco/x/commit/9d04e6eb7ceed81aeca4215db6e8302f0ab3705a)), closes [EX-6450](https://searchbroker.atlassian.net/browse/EX-6450)
+
+
+### Bug Fixes
+
+* **deps:** remove  `only-allow` pnpm (#1097) ([b2a63d3](https://github.com/empathyco/x/commit/b2a63d308f20804d55a266189ab5d6242f88f6d8)), closes [EX-8082](https://searchbroker.atlassian.net/browse/EX-8082)
+* make promoted and banner position optional (#817) ([a2a8d5d](https://github.com/empathyco/x/commit/a2a8d5dcc03451e046d00f87f3545dfd46c050c5)), closes [EX-7333](https://searchbroker.atlassian.net/browse/EX-7333)
+* mutable schema types (#960) ([8015921](https://github.com/empathyco/x/commit/8015921daf2c9e5ee3a6fce2c1f57458aeb278dd)), closes [EX-7702](https://searchbroker.atlassian.net/browse/EX-7702)
+* number filter schema to map the right values (#861) ([3b52554](https://github.com/empathyco/x/commit/3b5255420f5c081640bf23ef34063d014f70c34c))
+* Remove `@empathyco/x-platform-adapter` dependency from library code. (#575) ([104c7e1](https://github.com/empathyco/x/commit/104c7e10855a67b2adfa68d42d82431f9194ee15)), closes [EX-6437](https://searchbroker.atlassian.net/browse/EX-6437)
+* **schemas:** flatten hierarchical filters (#543) ([e5956dd](https://github.com/empathyco/x/commit/e5956dd432a2ae9fb819bc05cde22c0f8ada7424)), closes [EX-6205](https://searchbroker.atlassian.net/browse/EX-6205)
+
+
+### Code Refactoring
+
+* identifier results in the platform adapter ([d47dadb](https://github.com/empathyco/x/commit/d47dadbb457ab23ae3ed2bcd6d44b1d0f170aaf4)), closes [EX-6303](https://searchbroker.atlassian.net/browse/EX-6303)
+* make extra params optional (#553) ([ef7493a](https://github.com/empathyco/x/commit/ef7493a00a4da73f544f3a32b9e8a1fd68ba23a0)), closes [EX-6335](https://searchbroker.atlassian.net/browse/EX-6335)
+* next queries platform adapter ([882826d](https://github.com/empathyco/x/commit/882826d52bd2d0646250c42908bde22d23267ea4)), closes [EX-6306](https://searchbroker.atlassian.net/browse/EX-6306)
+* recommendations in platform adapter (#538) ([cc954bc](https://github.com/empathyco/x/commit/cc954bc6f6f6ba04447d382aed9b8f60b15b975b))
+* refactor popular searches in platform adapter (#531) ([df281af](https://github.com/empathyco/x/commit/df281af94114658f4bf9071d859f57ad48ea5f89))
+* related tags in platform adapter  ([beb1017](https://github.com/empathyco/x/commit/beb1017526aac9983bd1ef2002a3a754d4a0cfe2)), closes [EX-6311](https://searchbroker.atlassian.net/browse/EX-6311)
+* search in platform adapter (#540) ([065dcf7](https://github.com/empathyco/x/commit/065dcf7bcd81e79ea5ffdf22c271b117f055f3b6)), closes [EX-6313](https://searchbroker.atlassian.net/browse/EX-6313)
+* tagging in platform adapter (#539) ([2baa980](https://github.com/empathyco/x/commit/2baa980a3ccd5bc348c14cba67e30efd12b2edc8)), closes [EX-6312](https://searchbroker.atlassian.net/browse/EX-6312)
+
+
+### Build System
+
+* add `report` folder to packed `tarball` (#1101) ([16f21e8](https://github.com/empathyco/x/commit/16f21e802c3d14d1fce70422cec9cb13c8ecfd4f)), closes [EX-8105](https://searchbroker.atlassian.net/browse/EX-8105)
+* change `config` ([37be26e](https://github.com/empathyco/x/commit/37be26e83dbf3a200fb3fe23f4fc7221a83ca7e8)), closes [EX-5874](https://searchbroker.atlassian.net/browse/EX-5874)
+* **dependencies:** update `typescript` to `4.9.4` and its dependencies to their latest version (#993) ([500ab57](https://github.com/empathyco/x/commit/500ab57e4729f5c4dcefaa31ed4a8497ddd349b9)), closes [EX-7288](https://searchbroker.atlassian.net/browse/EX-7288)
+* **deps:** update `vue` to version `2.7` (#971) ([09fb0fe](https://github.com/empathyco/x/commit/09fb0fe5dbef020565571a4fafc89d2aac544c8e)), closes [EX-7730](https://searchbroker.atlassian.net/browse/EX-7730)
+* **deps:** update dependencies ([491f9c5](https://github.com/empathyco/x/commit/491f9c5a27cf5eaa4dc3f31c97ea514bb8f3515b))
+* **deps:** update dependencies (#1004) ([7343506](https://github.com/empathyco/x/commit/73435063e97648ed5bb87600bb7cfbb5eb64b70c))
+* **deps:** update deps (#1062) ([59f29b9](https://github.com/empathyco/x/commit/59f29b9c5861f790a65b061eec628eb35d066b68))
+* sync duplicated dependencies (#567) ([912e968](https://github.com/empathyco/x/commit/912e9687851594871b3296a5fb26129327939d96)), closes [EX-6412](https://searchbroker.atlassian.net/browse/EX-6412)
+
+
+### Documentation
+
+*  add `license` and improve `readme` (#968) ([d6513fb](https://github.com/empathyco/x/commit/d6513fb77d6467e7490f9951c2111870b4770058)), closes [EX-6046](https://searchbroker.atlassian.net/browse/EX-6046)
+* add missing release-tags and documentation (#1106) ([fbe7d46](https://github.com/empathyco/x/commit/fbe7d461daa37f9309dedaa46e87035e047e4a2a)), closes [EX-8119](https://searchbroker.atlassian.net/browse/EX-8119)
+* **api-extractor:** add API extractor to `x-adapter-platform` (#563) ([8391bfb](https://github.com/empathyco/x/commit/8391bfbfa3902492c8b052e47a996869d0240200)), closes [EX-6384](https://searchbroker.atlassian.net/browse/EX-6384)
+
+
+### Others
+
+* **deps:** update node to v18 (#1175) ([14e64e1](https://github.com/empathyco/x/commit/14e64e11fdf7f3d27d59baf56b027857df9e61e7))
+
+
+### Continuous Integration
+
+* migrate from `npm` & `lerna bootstrap` to `pnpm` (#1047) ([aaaba4f](https://github.com/empathyco/x/commit/aaaba4f8a5498c16e17ea6daf9c18a1f49918f70)), closes [EX-7891](https://searchbroker.atlassian.net/browse/EX-7891)
+* parallelize steps (#1174) ([3013595](https://github.com/empathyco/x/commit/3013595857c8dac33f36b2c0d08e747b0735c6a0))
+* refactor `lint` command to benefit from `nx parallelisation` (#1051) ([1af1503](https://github.com/empathyco/x/commit/1af1503ff118d6232fdbb27e203037a89b1b52e0)), closes [EX-7926](https://searchbroker.atlassian.net/browse/EX-7926)
+* update `runners` version (#740) ([38f246c](https://github.com/empathyco/x/commit/38f246c306dac40c4afbcdea08336052981ca9b8))
+* use matrix steps and jest projects (#919) ([dec53f5](https://github.com/empathyco/x/commit/dec53f5da572a4a5f3c8519222c1ed94ed981967))
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

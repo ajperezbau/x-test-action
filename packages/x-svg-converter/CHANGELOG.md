@@ -1,5 +1,54 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.0.0-alpha.6 (2023-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** minimum version required is node v18
+
+EMP-274
+* **design-system:** Old design-system `Icon` styles are now located in the `deprecated-full-theme.css` file.
+Removed `checkbox-card`, `nq1`, `nq2`, `nq3`, and `nq4 icons`.
+
+### Features
+
+* add `x-priority-bus` (#990) ([718d3d2](https://github.com/empathyco/x/commit/718d3d278e58a0f0d173ff4511245d59b1e6f036)), closes [EX-7458](https://searchbroker.atlassian.net/browse/EX-7458)
+* **design-system:** add `icon` to XDS  (#1053) ([21605ab](https://github.com/empathyco/x/commit/21605abc99f5da05556cfa7edb4213c61c205b78)), closes [EX-7783](https://searchbroker.atlassian.net/browse/EX-7783)
+* script to import SVGs into Vue components for the XDS (#885) ([814bfe5](https://github.com/empathyco/x/commit/814bfe502c4eae57373cee43a962ebdcafd499d1)), closes [EX-7384](https://searchbroker.atlassian.net/browse/EX-7384)
+
+
+### Bug Fixes
+
+* **deps:** remove  `only-allow` pnpm (#1097) ([b2a63d3](https://github.com/empathyco/x/commit/b2a63d308f20804d55a266189ab5d6242f88f6d8)), closes [EX-8082](https://searchbroker.atlassian.net/browse/EX-8082)
+* **svg-converter:** change `sourcePath` method resolve (#915) ([8970d7d](https://github.com/empathyco/x/commit/8970d7d168a646ed169d214cc2ec9480125161b5)), closes [EX-7606](https://searchbroker.atlassian.net/browse/EX-7606)
+* **svg-converter:** check if file exist before unlink it (#904) ([3f7af94](https://github.com/empathyco/x/commit/3f7af94e156ee5ab51f7e42e2a551e41cae94d3a))
+
+
+### Build System
+
+* **dependencies:** update `typescript` to `4.9.4` and its dependencies to their latest version (#993) ([500ab57](https://github.com/empathyco/x/commit/500ab57e4729f5c4dcefaa31ed4a8497ddd349b9)), closes [EX-7288](https://searchbroker.atlassian.net/browse/EX-7288)
+
+
+### Others
+
+* **deps:** update node to v18 (#1175) ([14e64e1](https://github.com/empathyco/x/commit/14e64e11fdf7f3d27d59baf56b027857df9e61e7))
+
+
+### Continuous Integration
+
+* migrate from `npm` & `lerna bootstrap` to `pnpm` (#1047) ([aaaba4f](https://github.com/empathyco/x/commit/aaaba4f8a5498c16e17ea6daf9c18a1f49918f70)), closes [EX-7891](https://searchbroker.atlassian.net/browse/EX-7891)
+* parallelize steps (#1174) ([3013595](https://github.com/empathyco/x/commit/3013595857c8dac33f36b2c0d08e747b0735c6a0))
+* refactor `lint` command to benefit from `nx parallelisation` (#1051) ([1af1503](https://github.com/empathyco/x/commit/1af1503ff118d6232fdbb27e203037a89b1b52e0)), closes [EX-7926](https://searchbroker.atlassian.net/browse/EX-7926)
+* use matrix steps and jest projects (#919) ([dec53f5](https://github.com/empathyco/x/commit/dec53f5da572a4a5f3c8519222c1ed94ed981967))
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

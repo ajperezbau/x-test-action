@@ -1,5 +1,87 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 4.0.0-alpha.25 (2023-05-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** minimum version required is node v18
+
+EMP-274
+* **facets:** Rename `Filters` component to `FiltersList`.
+* **facets:** Remove `MultiSelectFilters` component. Filters are multi-select by default. Apply the `SingleSelectModifier` using the `FilterEntityFactory` to make the desired `Facet` single select.
+* **facets:** Refactor `HierarchicalFilter.children` field. Now, this field is a list of the `Filter.ids` of the children filter. All `HierarchicalFilter`s are flattened in the `Facet.filters` list.
+* **facets:** Remove `facets` prop in the `Facets` component to provide `Facets` to the state. Use the `FacetsProvider` component instead.
+* **facets:** Remove `UserChangedSelectedFilters` event from `Facets` component. Use `FacetsProvider` component instead.
+* **facets:** Remove `UserClickedClearFacetFilters` event. `UserClickedClearAllFilters` is emitted instead. Its payload is now a list of `Facet.id`s.
+* **facets:** Rename `UserClickedFacetAllFilter` event to `UserClickedAllFilter`. Its payload is now a list of `Facet.id`s.
+* **facets:** Remove `BackendFacetsChanged` event. Use `FacetsChanged` event instead.
+* **facets:** Remove `BackendFacetsProvided` event. Use `FacetsGroupProvided` instead.
+* **facets:** Remove `FrontendFacetsChanged` event. Use `FacetsGroupProvided` instead.
+* **facets:** Remove `FacetMultiSelectChanged` event. `Filter`s are multi-select by default. Apply the `SingleSelectModifier` using the `FilterEntityFactory` to make the desired `Facet` single select.
+* **facets:** Change `UserModifiedEditableNumberRangeFilter` payload. Now it is the `EditableNumberRangeFilter` filter with the new range value.
+
+### Features
+
+* disable `@typescript-eslint/no-extra-parens` rule (#715) ([3718017](https://github.com/empathyco/x/commit/3718017c5528156f931bc8b1f2d208cdb50781ed)), closes [EX-6996](https://searchbroker.atlassian.net/browse/EX-6996)
+* **facets-next:** add `HierarchicalFilterEntity` (#75) ([d633721](https://github.com/empathyco/x/commit/d633721b6c795ee9145925d366216edd616b0807)), closes [EX-4354](https://searchbroker.atlassian.net/browse/EX-4354)
+* **facets-next:** add `SimpleFilterEntity` ([9b551a4](https://github.com/empathyco/x/commit/9b551a41d6e67c64942cfe26051a06ce7dc91a65)), closes [EX-4352](https://searchbroker.atlassian.net/browse/EX-4352)
+* **facets:** remove old `facets` X Module and replace by `facets-next`. ([a47d99f](https://github.com/empathyco/x/commit/a47d99fd9ccbb046c5a5054a92e723f2675b7563)), closes [EX-3663](https://searchbroker.atlassian.net/browse/EX-3663)
+* **plugin:** minimise initial duplicated requests using a debounce ([3ad1fd4](https://github.com/empathyco/x/commit/3ad1fd4ec949de1f1484919d0165f9e6eaa3d882)), closes [EX-4718](https://searchbroker.atlassian.net/browse/EX-4718)
+* **plugin:** replace old bus implementation using the new `x-priority-bus` (#1086) ([f64f9b6](https://github.com/empathyco/x/commit/f64f9b68225c4ee422eb007784e0eec813c95228)), closes [EX-7283](https://searchbroker.atlassian.net/browse/EX-7283)
+* replace `parcel` with `vite` (#739) ([7720502](https://github.com/empathyco/x/commit/7720502abfdee009506f4478ba3d71ea76051cb1))
+* update typescript ([73edca6](https://github.com/empathyco/x/commit/73edca61c1cea39d82a7ab94bc18c8bff94c138c)), closes [EX-5367](https://searchbroker.atlassian.net/browse/EX-5367)
+
+
+### Bug Fixes
+
+* **deps:** remove  `only-allow` pnpm (#1097) ([b2a63d3](https://github.com/empathyco/x/commit/b2a63d308f20804d55a266189ab5d6242f88f6d8)), closes [EX-8082](https://searchbroker.atlassian.net/browse/EX-8082)
+
+
+### Styling
+
+* add pre-commit hooks to run eslint and prettier ([3acc741](https://github.com/empathyco/x/commit/3acc7419b6ece4d7f353d0d1240677271a344bae)), closes [EX-4439](https://searchbroker.atlassian.net/browse/EX-4439)
+
+
+### Testing
+
+* **e2e:** update `cypress` to version `12.1.0` and replace `cypress-cucumber-preprocessor` with `@badeball/cypress-cucumber-preprocessor` (#747) ([2adb2cd](https://github.com/empathyco/x/commit/2adb2cd03591c37934fb385b120822ef271c359f))
+
+
+### Build System
+
+* **dependencies:** fix Vue & Vuex versions (#686) ([177e851](https://github.com/empathyco/x/commit/177e8511f4458fa13c627210cdfbbf6d42a85b17)), closes [EX-6918](https://searchbroker.atlassian.net/browse/EX-6918)
+* **dependencies:** update `typescript` to `4.9.4` and its dependencies to their latest version (#993) ([500ab57](https://github.com/empathyco/x/commit/500ab57e4729f5c4dcefaa31ed4a8497ddd349b9)), closes [EX-7288](https://searchbroker.atlassian.net/browse/EX-7288)
+* **deps:** update `vue` to version `2.7` (#971) ([09fb0fe](https://github.com/empathyco/x/commit/09fb0fe5dbef020565571a4fafc89d2aac544c8e)), closes [EX-7730](https://searchbroker.atlassian.net/browse/EX-7730)
+* **deps:** update dependencies ([491f9c5](https://github.com/empathyco/x/commit/491f9c5a27cf5eaa4dc3f31c97ea514bb8f3515b))
+* **deps:** update dependencies (#1024) ([e99425f](https://github.com/empathyco/x/commit/e99425fc315526afe40b1fd536bcfde1fc1af08a))
+* **deps:** Upgrade Cypress and Vue Cli plugins versions. (#399) ([630d6b0](https://github.com/empathyco/x/commit/630d6b0d767a3484140ecd252e2be10817e0900d)), closes [EX-5417](https://searchbroker.atlassian.net/browse/EX-5417)
+* Fix colors.js dependency issue ([2ffcc22](https://github.com/empathyco/x/commit/2ffcc222f5666d7866c8d7cd3a0eec7c0bb1f938)), closes [EX-5293](https://searchbroker.atlassian.net/browse/EX-5293)
+* update jest dependencies ([f3fee15](https://github.com/empathyco/x/commit/f3fee157d724292f5cbb7166908d48ef2fb4fe8c)), closes [EX-5027](https://searchbroker.atlassian.net/browse/EX-5027)
+* Update TypeScript to 4.3.5.Update TSLib to 2.3.5. ([4cebdfc](https://github.com/empathyco/x/commit/4cebdfc11e1520552a687def3eda1bf0c132e031)), closes [EX-4435](https://searchbroker.atlassian.net/browse/EX-4435)
+* upgrade dependencies ([b1d0e5d](https://github.com/empathyco/x/commit/b1d0e5df03cd48f3bb285830943bddf9bdc17acf)), closes [EX-4506](https://searchbroker.atlassian.net/browse/EX-4506)
+
+
+### Continuous Integration
+
+* make Cypress cache depend on package. Make eslint cache restore last version if no exact match. ([2498972](https://github.com/empathyco/x/commit/24989726d8e5c6c3450b344fbbc623a3f7246b53)), closes [EX-7721](https://searchbroker.atlassian.net/browse/EX-7721)
+* migrate from `npm` & `lerna bootstrap` to `pnpm` (#1047) ([aaaba4f](https://github.com/empathyco/x/commit/aaaba4f8a5498c16e17ea6daf9c18a1f49918f70)), closes [EX-7891](https://searchbroker.atlassian.net/browse/EX-7891)
+* refactor `lint` command to benefit from `nx parallelisation` (#1051) ([1af1503](https://github.com/empathyco/x/commit/1af1503ff118d6232fdbb27e203037a89b1b52e0)), closes [EX-7926](https://searchbroker.atlassian.net/browse/EX-7926)
+* update `runners` version (#740) ([38f246c](https://github.com/empathyco/x/commit/38f246c306dac40c4afbcdea08336052981ca9b8))
+* use matrix steps and jest projects (#919) ([dec53f5](https://github.com/empathyco/x/commit/dec53f5da572a4a5f3c8519222c1ed94ed981967))
+
+
+### Others
+
+* **deps:** update node to v18 (#1175) ([14e64e1](https://github.com/empathyco/x/commit/14e64e11fdf7f3d27d59baf56b027857df9e61e7))
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
