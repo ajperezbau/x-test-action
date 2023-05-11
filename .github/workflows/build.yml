@@ -38,6 +38,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Install deps
+        uses: cypress-io/github-action@v5
+        with:
+          runTests: false
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
         timeout-minutes: 60
+        with:
+          install: false
+          working-directory: packages/x-components
