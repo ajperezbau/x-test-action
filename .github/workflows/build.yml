@@ -30,5 +30,6 @@ jobs:
         timeout-minutes: 60
         with:
           install: false
+          browser: chrome
           start: npm run serve
           working-directory: packages/x-components
