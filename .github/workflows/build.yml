@@ -48,4 +48,5 @@ jobs:
         timeout-minutes: 60
         with:
           install: false
+          start: npm run serve
           working-directory: packages/x-components
