@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Install
-        uses: ./github/actions/install
+        uses: ./.github/actions/install
 
       - name: Cypress run React Wrapper
         uses: cypress-io/github-action@v5
