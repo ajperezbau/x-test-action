@@ -8,22 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      # Install pnpm because it is not included in our container image
-      - name: install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-
-      - name: Install deps
-        uses: cypress-io/github-action@v5
-        with:
-          runTests: false
+      - name: Install
+        uses: ./github/actions/install
 
       - name: Cypress run React Wrapper
         uses: cypress-io/github-action@v5
