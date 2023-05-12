@@ -21,20 +21,18 @@ Feature: Preselected filters
       | query | filter                | filterLabel |
       | lego  | brand_facet:Construye | Construye   |
 
-  @skip
   Scenario Outline: 2. Preselected filters are not applied when there are other filters in the url
-    Given an application the "<filter>" filter preselected
-    Given a URL with a filter parameter "<parameter>"
+    Given an application the "<filter>" filter preselected and the "<urlFilter>" filter in the URL
     When  start button is clicked
     And   "<query>" is searched
     Then  related results are displayed
-    And   url contains parameter "filter" with value "<parameter>"
+    And   url contains parameter "filter" with value "<urlFilter>"
     And   filter "<filterLabel>" is selected
     When  the page is reloaded
     Then  related results are displayed
-    And   url contains parameter "filter" with value "<parameter>"
+    And   url contains parameter "filter" with value "<urlFilter>"
     And   filter "<filterLabel>" is selected
 
     Examples:
-      | query | filter                | parameter                | filterLabel  |
+      | query | filter                | urlFilter                | filterLabel  |
       | lego  | brand_facet:Construye | brand_facet:Construcción | Construcción |

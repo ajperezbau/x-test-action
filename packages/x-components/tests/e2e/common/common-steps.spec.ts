@@ -50,6 +50,28 @@ Given('an application the {string} filter preselected', (preselectedFilter: stri
   cy.wait(20);
 });
 
+Given(
+  'an application the {string} filter preselected and the {string} filter in the URL',
+  (preselectedFilter: string, urlFilter: string) => {
+    cy.visit('/', {
+      qs: {
+        filter: urlFilter
+      },
+      onBeforeLoad(win) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        win.initX = {
+          ...baseSnippetConfig,
+          filters: [preselectedFilter]
+        };
+      }
+    });
+    // TODO: Check why we need to wait a few ms so the preselected are actually pushed into the url
+    // eslint-disable-next-line cypress/no-unnecessary-waiting
+    // cy.wait(20);
+  }
+);
+
 Given('a URL with query parameter {string}', (query: string) => {
   cy.visit('/', {
     qs: {
