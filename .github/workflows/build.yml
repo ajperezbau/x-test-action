@@ -4,7 +4,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref_name }}
   cancel-in-progress: true
 jobs:
-  cypress-run:
+  unit-tests:
+
+
+  e2e-tests:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +28,16 @@ jobs:
         with:
           runTests: false
 
-      - name: Cypress run
+      - name: Cypress run React Wrapper
+        uses: cypress-io/github-action@v5
+        timeout-minutes: 60
+        with:
+          install: false
+          browser: chrome
+          start: npm run serve
+          working-directory: packages/react-wrapper
+
+      - name: Cypress run X Components
         uses: cypress-io/github-action@v5
         timeout-minutes: 60
         with:
@@ -34,7 +46,7 @@ jobs:
           start: npm run serve
           working-directory: packages/x-components
 
-      - name: Cypress run component
+      - name: Cypress run X Components component
         uses: cypress-io/github-action@v5
         timeout-minutes: 60
         with:
