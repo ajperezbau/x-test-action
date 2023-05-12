@@ -4,6 +4,10 @@ description: Checkouts the repo and installs dependencies
 runs:
   using: 'composite'
   steps:
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
     # Install pnpm because it is not included in our container image
     - name: install pnpm
       uses: pnpm/action-setup@v2
