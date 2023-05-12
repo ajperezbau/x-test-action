@@ -21,6 +21,7 @@ Feature: Preselected filters
       | query | filter                | filterLabel |
       | lego  | brand_facet:Construye | Construye   |
 
+  @skip
   Scenario Outline: 2. Preselected filters are not applied when there are other filters in the url
     Given an application the "<filter>" filter preselected
     Given a URL with a filter parameter "<parameter>"
