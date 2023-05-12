@@ -18,7 +18,7 @@ jobs:
         uses: ./.github/actions/install
 
       - name: Run e2e tests
-        timeout-minuts: 60
+        timeout-minutes: 60
         uses: ./.github/actions/run-e2e-tests
 
   unit-tests:
