@@ -4,12 +4,6 @@ description: Checkouts the repo and installs dependencies
 runs:
   using: 'composite'
   steps:
-    - name: checkout repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
-        persist-credentials: false
-
     # Install pnpm because it is not included in our container image
     - name: install pnpm
       uses: pnpm/action-setup@v2
