@@ -17,25 +17,21 @@ jobs:
       - name: Install
         uses: ./.github/actions/install
 
-      - name: Run e2e tests
-        timeout-minutes: 60
-        uses: ./.github/actions/run-e2e-tests
-
-  unit-tests:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Install
-        uses: ./.github/actions/install
-
       - name: Run lint
         run: pnpm run lint
 
       - name: Run tests
         run: pnpm run test:unit
+
+      - name: Run e2e tests
+        timeout-minutes: 60
+        uses: ./.github/actions/run-e2e-tests
+
+      - name: release
+        if:
+          ${{ github.ref_name == 'main' && github.actor != 'support-empathy' &&
+          !startsWith(github.event.head_commit.message, 'chore(release):') }}
+        uses: ./.github/actions/release-alpha
+        with:
+          npm_token: ${{ secrets.NPM_TOKEN_GRANULAR_ACCESS }}
+          github_token: ${{ secrets.SUPPORT_TOKEN }}
