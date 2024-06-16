@@ -89,7 +89,7 @@
     "@empathyco/x-types": "workspace:@ajperezbau/x-types@*",
     "@empathyco/x-utils": "workspace:@ajperezbau/x-utils@*",
     "@vue/devtools-api": "~6.5.0",
-    "@vueuse/core": "~9.13.0",
+    "@vueuse/core": "~10.11.0",
     "rxjs": "~7.8.0",
     "tslib": "~2.5.0",
     "vue-class-component": "~7.2.6",
